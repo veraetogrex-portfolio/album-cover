@@ -1,0 +1,187 @@
+/* VECTOR Photos · album cover — zero dependencies. The whole 1440×900 app screen. */
+.ac{
+  --ac-bg:#07080C; --ac-side:#0B0C11; --ac-panel:#0E1016; --ac-well:#10121A; --ac-tile:#0F1117; --ac-photo:#161820;
+  --ac-line:#191B23; --ac-line-2:#1E2029; --ac-line-3:#262935; --ac-card-line:#1B1E27;
+  --ac-text:#EDEAE3; --ac-text-2:#C9CBD4; --ac-nav:#B9BBC6; --ac-muted:#9A9CA8; --ac-dim:#858896;
+  --ac-dawn:#F08A6C; --ac-dawn-soft:#F7B49E; --ac-dawn-bg:#22150F; --ac-dawn-chip:#2A1A14; --ac-dawn-ink:#1E0D07; --ac-dawn-line:#5A3426;
+  --ac-out:cubic-bezier(.16,1,.3,1); --ac-state:cubic-bezier(.23,1,.32,1);
+  position:relative; width:1440px; height:900px; overflow:hidden; display:flex;
+  background:var(--ac-bg); color:var(--ac-text); font-family:var(--font, Geist, system-ui, sans-serif);
+  font-size:14px; line-height:normal; -webkit-font-smoothing:antialiased;
+}
+.ac :where(*, *::before, *::after){box-sizing:border-box}
+.ac :where(h1, h2, p){margin:0; padding:0}
+.ac :where(button){font:inherit; color:inherit; cursor:pointer; background:none; border:0; padding:0}
+.ac :where(a){color:inherit; text-decoration:none}
+.ac :where(img){display:block; max-width:none; -webkit-user-drag:none; user-select:none}
+.ac :where(button, a, input):focus-visible{outline:2px solid var(--ac-dawn); outline-offset:2px}
+.ac .ac-sr{position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap}
+.ac .ac-sub{font-size:12.5px; color:var(--ac-muted)}
+.ac .ac-h2{font-size:15px; font-weight:600}
+.ac .ac-card{background:var(--ac-panel); border:1px solid var(--ac-card-line); border-radius:14px}
+.ac .ac-ph{position:relative; overflow:hidden; display:block; flex:none; background:var(--ac-photo)}
+.ac .ac-ph > img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover}
+.ac .ac-pt{width:34px; height:34px; border-radius:50%; overflow:hidden; flex:none; background:#1C1E27; display:block; box-shadow:0 0 0 2px var(--ac-panel)}
+.ac .ac-pt img{width:100%; height:100%; object-fit:cover}
+.ac .ac-faces{display:flex}
+.ac .ac-faces > * + *{margin-left:-8px}
+.ac .ac-me{border-radius:50%; display:inline-grid; place-items:center; font-weight:600; color:var(--ac-dawn-soft); background:var(--ac-dawn-chip); flex:none; width:34px; height:34px; font-size:13px}
+.ac .ac-ob{height:34px; padding:0 14px; border-radius:9px; border:1px solid var(--ac-line-3); color:var(--ac-text-2); font-size:13px; font-weight:500; display:inline-flex; align-items:center; gap:7px}
+.ac .ac-ob:hover{color:var(--ac-text)}
+
+/* sidebar */
+.ac .ac-side{width:232px; flex:none; background:var(--ac-side); border-right:1px solid var(--ac-line); display:flex; flex-direction:column; gap:4px; padding:22px 14px 18px}
+.ac .ac-logo{display:flex; align-items:center; gap:10px; padding:0 10px 20px; font-size:16px}
+.ac .ac-logo b{font-weight:700; letter-spacing:.02em}
+.ac .ac-logo span{color:var(--ac-muted)}
+.ac .ac-nav{display:flex; align-items:center; gap:12px; height:38px; padding:0 10px; border-radius:8px; color:var(--ac-nav); font-weight:500; transition:color .15s}
+.ac .ac-nav:hover{color:var(--ac-text)}
+.ac .ac-nav.is-on{background:var(--ac-dawn-bg); color:var(--ac-text)}
+.ac .ac-nav.is-on svg{color:var(--ac-dawn)}
+.ac .ac-count{margin-left:auto; min-width:20px; height:20px; border-radius:10px; background:var(--ac-dawn-chip); color:var(--ac-dawn-soft); font-size:11.5px; display:grid; place-items:center}
+.ac .ac-group{font-size:12.5px; color:var(--ac-dim); padding:18px 10px 6px}
+.ac .ac-mine{display:flex; align-items:center; gap:10px; height:38px; padding:0 10px; border-radius:8px; font-size:13.5px; color:var(--ac-text-2)}
+.ac .ac-mine:hover{color:var(--ac-text)}
+.ac .ac-mine .ac-ph{width:26px; height:26px; border-radius:6px}
+.ac .ac-mine > span:nth-child(2){flex:1; white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+.ac .ac-mine > span:last-child{font-size:12px; color:var(--ac-dim)}
+.ac .ac-side-foot{margin-top:auto; display:flex; flex-direction:column; gap:14px}
+.ac .ac-store{padding:14px; border-radius:12px; background:var(--ac-tile); border:1px solid var(--ac-card-line)}
+.ac .ac-bar{height:4px; border-radius:2px; background:#22252F; margin-top:10px; display:flex; overflow:hidden}
+.ac .ac-bar span{background:var(--ac-dawn)}
+.ac .ac-user{display:flex; align-items:center; gap:10px; padding:0 4px}
+
+/* top bar */
+.ac .ac-col{flex:1; min-width:0; display:flex; flex-direction:column}
+.ac .ac-top{height:64px; flex:none; display:flex; align-items:center; gap:14px; padding:0 28px; border-bottom:1px solid var(--ac-line)}
+.ac .ac-search{position:relative; flex:1; max-width:460px; height:42px; border-radius:10px; background:var(--ac-well); border:1px solid var(--ac-line-2); display:flex; align-items:center; gap:10px; padding:0 14px; color:var(--ac-dim); font-size:13.5px}
+.ac .ac-search input{flex:1; border:0; background:transparent; color:var(--ac-text); font:inherit; outline:none}
+.ac .ac-search input::placeholder{color:var(--ac-dim)}
+.ac .ac-top-r{margin-left:auto; display:flex; align-items:center; gap:8px}
+.ac .ac-import{height:38px; padding:0 16px; border-radius:10px; border:1px solid var(--ac-line-3); font-size:13.5px; font-weight:500; display:flex; align-items:center; gap:8px}
+.ac .ac-ib{width:36px; height:36px; border-radius:50%; color:var(--ac-nav); display:inline-grid; place-items:center; position:relative}
+.ac .ac-ib i{position:absolute; top:7px; right:8px; width:8px; height:8px; border-radius:50%; background:var(--ac-dawn)}
+
+/* two screens in one place: albums and the album */
+.ac .ac-views{position:relative; flex:1; min-height:0}
+.ac .ac-view{position:absolute; inset:0; display:flex; gap:24px; padding:22px 28px 20px; opacity:0; visibility:hidden; transition:opacity .2s, visibility 0s .28s}
+.ac .ac-view.is-on{opacity:1; visibility:visible; transition:opacity .28s var(--ac-out)}
+.ac.is-instant .ac-view{transition:none}
+.ac .ac-main{flex:1; min-width:0; display:flex; flex-direction:column; position:relative}
+.ac .ac-aside{width:320px; flex:none; display:flex; flex-direction:column; gap:16px}
+.ac .ac-box{padding:16px; display:flex; flex-direction:column; gap:14px}
+.ac .ac-sec-h{display:flex; align-items:baseline; justify-content:space-between}
+.ac .ac-feed{display:flex; gap:12px; align-items:center}
+.ac .ac-feed > div{flex:1; font-size:13px; color:var(--ac-text-2); line-height:1.35}
+.ac .ac-feed > div b{color:var(--ac-text); font-weight:500}
+.ac .ac-feed > span:last-child{font-size:12px; color:var(--ac-muted)}
+
+/* albums */
+.ac .ac-lib-h{display:flex; align-items:flex-end; gap:16px}
+.ac .ac-lib-h h1{font-size:26px; font-weight:600; letter-spacing:-.01em}
+.ac .ac-tabs{margin-left:auto; display:flex; gap:4px; padding:4px; border-radius:10px; background:var(--ac-well); border:1px solid var(--ac-line-2)}
+.ac .ac-tabs button{height:30px; padding:0 14px; border-radius:7px; color:var(--ac-nav); font-size:13px; font-weight:500}
+.ac .ac-tabs button[aria-pressed="true"]{background:#232733; color:var(--ac-text)}
+.ac .ac-new{height:40px; padding:0 16px; border-radius:10px; background:var(--ac-dawn); color:var(--ac-dawn-ink); font-size:13.5px; font-weight:600; display:flex; align-items:center; gap:8px}
+.ac .ac-grid{display:grid; grid-template-columns:repeat(3, minmax(0, 1fr)); gap:20px 16px; margin-top:22px}
+.ac .ac-album{display:flex; flex-direction:column; gap:10px}
+.ac .ac-album .ac-ph{height:178px; border-radius:12px}
+.ac .ac-album .ac-ph > img{transition:transform .3s var(--ac-state)}
+.ac .ac-album:hover .ac-ph > img{transform:scale(1.03)}
+.ac .ac-album-t{display:block; font-size:14.5px; font-weight:600}
+.ac .ac-album-m{display:block; font-size:12.5px; color:var(--ac-muted); margin-top:3px}
+.ac .ac-on-photo{position:absolute; right:10px; bottom:10px}
+.ac .ac-on-photo .ac-pt{width:26px; height:26px; box-shadow:0 0 0 2px var(--ac-photo)}
+.ac .ac-auto{position:absolute; left:10px; top:10px; height:24px; padding:0 9px; border-radius:12px; background:rgba(7,8,12,.72); color:var(--ac-text-2); font-size:11.5px; font-weight:500; display:flex; align-items:center}
+.ac[data-cover] .ac-auto{display:none}
+.ac .ac-shared{display:grid; grid-template-columns:repeat(3, minmax(0, 1fr)); gap:16px; margin-top:12px}
+.ac .ac-shared a{padding:10px; display:flex; gap:12px; align-items:center}
+.ac .ac-shared .ac-ph{width:52px; height:52px; border-radius:8px}
+.ac .ac-day .ac-ph{height:150px; border-radius:10px}
+.ac .ac-book{padding:16px; display:flex; gap:14px; align-items:center}
+.ac .ac-book i{width:44px; height:44px; border-radius:12px; background:var(--ac-dawn-bg); display:grid; place-items:center; color:var(--ac-dawn)}
+
+/* the album: crumbs, cover, highlights, all photos */
+.ac .ac-album-view{padding-top:18px}
+.ac .ac-crumbs{display:flex; align-items:center; gap:8px; font-size:12.5px; color:var(--ac-muted); height:34px}
+.ac .ac-crumbs a:hover{color:var(--ac-text)}
+.ac .ac-crumbs > div{margin-left:auto; display:flex; gap:8px}
+.ac .ac-cover{position:relative; height:318px; border-radius:16px; overflow:hidden; background:var(--ac-photo); margin-top:10px; isolation:isolate}
+.ac .ac-cover-img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center 55%}
+.ac[data-cover] .ac-cover-img{object-position:center 62%}
+.ac .ac-morph{position:absolute; inset:0; overflow:hidden; pointer-events:none}
+.ac .ac-morph img{position:absolute; left:0; top:0; transform-origin:0 0}
+.ac .ac-shade{position:absolute; left:0; right:0; bottom:0; height:170px; background:linear-gradient(180deg, rgba(7,8,12,0), rgba(7,8,12,.78)); pointer-events:none}
+.ac .ac-chip{position:absolute; left:18px; top:16px; height:28px; padding:0 12px; border-radius:14px; background:rgba(7,8,12,.72); color:var(--ac-text-2); font-size:12.5px; font-weight:500; display:flex; align-items:center}
+.ac[data-cover] .ac-chip{color:var(--ac-dawn-soft)}
+.ac .ac-title{position:absolute; left:24px; bottom:20px}
+.ac .ac-title h1{font-size:32px; font-weight:600; letter-spacing:-.02em}
+.ac .ac-title div{font-size:13.5px; color:#D6D4CE; margin-top:6px}
+.ac .ac-cover-r{position:absolute; right:22px; bottom:22px; display:flex; align-items:center; gap:12px}
+.ac .ac-cover-r .ac-pt{width:30px; height:30px; box-shadow:0 0 0 2px #2A2522}
+.ac .ac-change{height:34px; padding:0 14px; border-radius:9px; border:1px solid rgba(237,234,227,.28); background:rgba(7,8,12,.55); font-size:13px; font-weight:500}
+.ac .ac-cover-img, .ac .ac-shade, .ac .ac-chip, .ac .ac-title, .ac .ac-cover-r{transition:filter .25s var(--ac-state)}
+.ac .ac-cover.is-drop :is(.ac-cover-img, .ac-shade, .ac-chip, .ac-title, .ac-cover-r){filter:brightness(.5)}
+/* drop zone: coral dashes and the hint, over the waiting cover */
+.ac .ac-drop{position:absolute; inset:0; pointer-events:none; opacity:0; transition:opacity .18s}
+.ac .ac-cover.is-drop .ac-drop{opacity:1}
+.ac .ac-drop::before{content:""; position:absolute; inset:10px; border:2px dashed var(--ac-dawn); border-radius:10px; opacity:.6; transition:opacity .15s}
+.ac .ac-cover.is-over .ac-drop::before{opacity:1}
+.ac .ac-drop span{position:absolute; left:50%; top:58px; height:36px; padding:0 16px; border-radius:18px; background:var(--ac-dawn); color:var(--ac-dawn-ink); font-size:14px; font-weight:600; display:flex; align-items:center; gap:8px; white-space:nowrap; transform:translateX(-50%) scale(.96); transition:transform .2s var(--ac-state)}
+.ac .ac-cover.is-over .ac-drop span{transform:translateX(-50%) scale(1.04)}
+.ac .ac-toast{position:absolute; right:18px; top:16px; height:34px; padding:0 6px 0 14px; border-radius:17px; background:var(--ac-text); color:#14110C; font-size:13px; font-weight:600; display:flex; align-items:center; gap:10px; opacity:0; visibility:hidden; transform:scale(.95); transform-origin:100% 50%; transition:opacity .2s, transform .2s, visibility 0s .2s}
+.ac .ac-toast button{height:26px; padding:0 12px; border-radius:13px; background:#14110C; color:var(--ac-text); font-size:12.5px; font-weight:600}
+.ac[data-cover] .ac-toast{opacity:1; visibility:visible; transform:none; transition:opacity .3s var(--ac-out), transform .3s var(--ac-out)}
+
+.ac .ac-row-h{display:flex; align-items:baseline; justify-content:space-between; margin-top:22px}
+.ac .ac-hls{display:grid; grid-template-columns:repeat(3, minmax(0, 1fr)); gap:14px; margin-top:12px}
+.ac .ac-hl{display:flex; flex-direction:column; gap:9px}
+.ac .ac-hl .ac-ph{height:176px; border-radius:12px; width:100%; touch-action:none; cursor:grab}
+.ac .ac-hl .ac-ph:active{cursor:grabbing}
+.ac .ac-hl-t{display:flex; align-items:center; gap:8px}
+.ac .ac-hl-t > div{flex:1}
+.ac .ac-hl-t b{display:block; font-size:14px; font-weight:600}
+.ac .ac-hl-t .ac-sub{margin-top:2px}
+.ac .ac-likes{display:flex; align-items:center; gap:5px; font-size:12.5px; color:var(--ac-text-2)}
+.ac .ac-gap{position:absolute; inset:0; background:var(--ac-side); border:1.5px dashed #5C6070; border-radius:12px; display:grid; place-items:center; color:var(--ac-dim); font-size:12.5px; opacity:0; transition:opacity .15s}
+.ac .ac-hl.is-lifted .ac-gap{opacity:1}
+.ac .ac-badge{position:absolute; left:10px; top:10px; height:24px; padding:0 10px 0 8px; border-radius:12px; background:var(--ac-dawn); color:var(--ac-dawn-ink); font-size:12px; font-weight:600; display:flex; align-items:center; gap:5px; opacity:0; transform:scale(.95); transform-origin:0 50%; transition:opacity .15s, transform .15s}
+.ac .ac-hl.is-cover .ac-badge{opacity:1; transform:none; transition:opacity .3s var(--ac-out), transform .3s var(--ac-out)}
+.ac .ac-all{display:grid; grid-template-columns:repeat(9, minmax(0, 1fr)); gap:8px; margin-top:12px}
+.ac .ac-all .ac-ph{height:84px; border-radius:8px}
+.ac .ac-all > span:last-child{height:84px; border-radius:8px; background:var(--ac-well); border:1px solid var(--ac-line-2); display:grid; place-items:center; font-size:14px; font-weight:600; color:var(--ac-text-2)}
+
+/* the photo in the hand: lifted, tilted, ringed in coral */
+.ac .ac-ghost{position:absolute; z-index:20; pointer-events:none; will-change:transform}
+.ac .ac-ghost > div{width:100%; height:100%; border-radius:12px; overflow:hidden; background:var(--ac-photo); box-shadow:0 0 0 2px var(--ac-dawn), 0 28px 56px rgba(0,0,0,.6), 0 6px 14px rgba(0,0,0,.45); transition:transform .2s var(--ac-state)}
+.ac .ac-ghost img{width:100%; height:100%; object-fit:cover}
+.ac .ac-ghost.is-lift > div{transform:rotate(-3deg) scale(1.12)}
+
+/* sharing column: what the family sees */
+.ac .ac-fam{display:flex; align-items:center; gap:12px}
+.ac .ac-fam .ac-pt, .ac .ac-fam .ac-me{width:32px; height:32px; font-size:12px; box-shadow:0 0 0 2px var(--ac-panel)}
+.ac .ac-preview{display:flex; gap:12px; align-items:center; padding:10px; border-radius:12px; background:#12141B; border:1px solid var(--ac-line-2); transition:border-color .4s}
+.ac .ac-preview .ac-ph{width:84px; height:60px; border-radius:8px}
+.ac .ac-preview .ac-ph > img{object-position:center 55%}
+.ac .ac-preview-m{font-size:12px; color:var(--ac-muted); margin-top:3px; transition:color .4s}
+.ac[data-synced="true"] .ac-preview{border-color:var(--ac-dawn-line)}
+.ac[data-synced="true"] .ac-preview-m{color:var(--ac-dawn-soft)}
+.ac[data-synced="true"] .ac-preview .ac-ph > img{object-position:center 62%}
+/* a cover image that changes crossfades: the old one stays under, the new one fades in on top */
+.ac .ac-swap{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; animation:ac-in .45s var(--ac-out) both}
+@keyframes ac-in{from{opacity:0}to{opacity:1}}
+.ac .ac-act{display:grid; grid-template-rows:0fr; opacity:0; margin-bottom:-14px; transition:grid-template-rows .4s var(--ac-out), opacity .3s .1s, margin-bottom .4s var(--ac-out)}
+.ac .ac-act > div{min-height:0; overflow:hidden}
+.ac[data-synced="true"] .ac-act{grid-template-rows:1fr; opacity:1; margin-bottom:0}
+.ac .ac-act .ac-feed > div{color:var(--ac-text)}
+.ac .ac-act .ac-feed > div b{font-weight:600}
+.ac .ac-act .ac-feed > span:last-child{color:var(--ac-dawn-soft)}
+.ac .ac-trip{padding:16px; display:flex; flex-direction:column; gap:10px}
+.ac .ac-trip > div{display:flex; justify-content:space-between; font-size:13px}
+.ac .ac-trip > div span:first-child{color:var(--ac-muted)}
+.ac .ac-trip button{height:38px; margin-top:4px; border-radius:10px; border:1px solid var(--ac-line-3); font-size:13.5px; font-weight:600}
+.ac.is-instant :is(.ac-act, .ac-preview, .ac-preview-m, .ac-toast, .ac-badge, .ac-gap, .ac-drop, .ac-cover-img, .ac-shade, .ac-chip, .ac-title, .ac-cover-r){transition:none}
+
+@media (prefers-reduced-motion: reduce){
+  .ac :where(*){transition-duration:.01ms !important; animation-duration:.01ms !important}
+}
